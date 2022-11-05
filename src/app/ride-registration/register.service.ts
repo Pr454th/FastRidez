@@ -11,6 +11,6 @@ export class RegisterService {
   addRide(ride:any):Observable<any>{
     const options=new HttpHeaders({'content-type':'application/json'})
     console.log(ride);
-    return this.http.post('https://fastridez-test-api.herokuapp.com/addride',ride,{headers:options}).pipe();
+    return this.http.post('https://fastridez-api.herokuapp.com/addride',ride,{headers:options}).pipe();
   }
 }

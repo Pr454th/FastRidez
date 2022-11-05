@@ -1,5 +1,5 @@
 {
-  "proxy": "https://fastridez-test-api.herokuapp.com",
+  "proxy": "https://fastridez-api.herokuapp.com",
   "name": "pool-carz",
   "version": "0.0.0",
   "scripts": {
