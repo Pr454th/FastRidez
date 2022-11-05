@@ -1,0 +1,22 @@
+#titleBox{
+    background-color: #0d6efd !important;
+    color:white;
+}
+table{
+    overflow: scroll;
+}
+th
+{
+    background-color: #0d6efd;
+    color:white;
+}
+td,tr{
+    text-align: center;
+}
+tr{
+    background-color: lightblue;
+}
+/* tr:hover{
+    background-color: blue;
+    color: white;
+} */

@@ -1,0 +1,109 @@
+<div class="container mt-2">
+    <h1 class="display-5 mb-4">Book Your Ride</h1>
+</div>
+<div class="container d-flex justify-content-center" *ngIf="user">
+    <div class="card w-75 mt-2 p-1 mb-1">
+        <div class="row p-1 mt-2">
+                <ol class="card-text list-group list-group-numbered p-2">
+                    <li class="list-group-item">
+                        Fast Ridez is an online application which enable users to share rides with others.
+                    </li>
+                    <li class="list-group-item">
+                        Book a ride or offer a ride.
+                    </li>
+                    <li class="list-group-item">
+
+                        View Your Booking history.
+                    </li>
+                    <li class="list-group-item">
+
+                        Removing your rides
+                    </li>
+                </ol>
+        </div>
+        <div *ngIf="!flag">
+            <div class="row mt-2">
+                <div class="col-md-6 mb-1 d-flex justify-content-center">
+                    <button class="btn btn-primary w-50 m-1" (click)="onClickRides()">Show All Rides</button>
+                </div>
+                <div class="col-md-6 mb-1 d-flex justify-content-center">
+                <button class="btn btn-primary w-50 m-1" (click)="offerRide()">Offer A Ride!</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="flag" class="mt-2">
+            <div  *ngIf="!rideid" class="row justify-content-center m-1">
+                <div class="col-md-3 mb-1">
+                    <button class="btn btn-primary w-100" [style.backgroundColor]="(option==='all')?'green':'#0d6efd'" (click)="onClickRides()">Show All Rides</button>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <button class="btn btn-primary  w-100" [style.backgroundColor]="(option==='toOffice')?'green':'#0d6efd'" (click)="filterPlace('toOffice');">To Office</button>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <button class="btn btn-primary  w-100" [style.backgroundColor]="(option==='fromOffice')?'green':'#0d6efd'" (click)="filterPlace('fromOffice');">From Office</button>
+                </div>
+                <div class="col-md-3 mb-1">
+                    <button class="btn btn-primary  w-100" [style.backgroundColor]="(option==='Others')?'green':'#0d6efd'" (click)="filterPlace('Others');">Others</button>
+                </div>
+            </div>
+            <div  *ngIf="rideid" class="row justify-content-center m-1">
+                <div class="col-md-3 mb-1">
+                    <button class="btn btn-primary w-100" [style.backgroundColor]="(option==='all'||'toOffice'||'fromOffice'||'Others')?'green':'#0d6efd'" (click)="onReset()">Show All Rides</button>
+                </div>
+            </div>
+            <div *ngIf="!rideid" class="row mt-2">
+                <div class="col d-flex justify-content-center">
+                    <p style="color:red;">Please select a ride!</p>
+                </div>
+            </div>
+            <div *ngIf="!rideid" class="row m-1">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Start Point</th>
+                                    <th scope="col">End Point</th>
+                                    <th scope="col">Seats Available</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let ride of rides| ridefilter:option">
+                                <tr appRidehover (click)="RideSelect(ride)" #rideSelected>
+                                    <td>{{ride.pickUp}}</td>
+                                    <td>{{ride.destination}}</td>
+                                    <td>{{ride.seatsLeft}}</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isRideSelected" class="row d-flex justify-content-center mt-2 m-1">
+                <div class="card">
+                    <app-ridedetails [invalidRide]="isvalidRide" [getRide]="rideDetail" (bookSelectedRide)="bookRide($event)" (closeRide)="chosRide($event)"></app-ridedetails>
+
+                <div *ngIf="rideid">
+                    <div class="col-md mb-1 d-flex justify-content-center">
+                        <p>Booking Done. Your booking id :{{rideid}}</p>
+                    </div>
+                    <div class="col-md mb-1 d-flex justify-content-center">
+                    <button class="btn btn-danger m-1" (click)="cancelRide(rideDetail)">Cancel Booked Ride!</button>
+                    </div>
+                </div> 
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md mb-1 d-flex justify-content-center">
+                <button class="btn btn-primary m-1" (click)="offerRide()">Offer A Ride!</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+<div class="container" *ngIf="!user">
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+            <h1 class="display-4">Please Login to Book ride!</h1>
+        </div>
+    </div>
+</div>

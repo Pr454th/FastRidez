@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div *ngFor="let value of mydatas">
+                <p>
+                    Data:{{value}}
+                </p>
+            </div>
+            <p>Errors:{{errors}}</p>
+            <p>Finished:{{finished}}</p>
+        </div>
+        <button class="btn btn-secondary" (click)="fetchData()">Start data stream</button>
+    </div>
+</div>

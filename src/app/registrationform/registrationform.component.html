@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center">
+    <div class="row w-50 mt-2">
+        <div class="card col p-2">
+
+            <form [formGroup]="registerForm">
+                <h2>Car Ride Registration Form</h2>
+                <div class="form-group">
+                    <label for="fn" class="form-label">First name</label>
+                    <input type="text" id="fn" class="form-control" formControlName="firstname" required>
+                    <div *ngIf="registerForm.controls['firstname'].errors" class="alert alert-danger">
+                        firstname field is invalid
+                        <p *ngIf="registerForm.controls['firstname'].errors?.['required']">
+                            firstname field is required
+                        </p>
+                    </div>
+                    <label for="ln" class="form-label">Last name</label>
+                    <input type="text" id="ln" class="form-control" formControlName="lastname" required> 
+                        <p *ngIf="((registerForm.controls['lastname'].dirty) || 
+                        (registerForm.controls['lastname'].touched)||
+                        (registerForm.controls['lastname'].pristine)||
+                        (registerForm.controls['lastname'].dirty)) &&
+                        (registerForm.controls['lastname'].errors)">
+                            lastname field is required
+                        </p>
+                        <label for="mail" class="form-label">Email</label>
+                        <input type="text" id="mail" class="form-control" formControlName="email" required>
+                        <p *ngIf="registerForm.controls['email'].errors?.['required']">This field is required</p>
+                        <p *ngIf="registerForm.controls['email'].errors?.['emailInvalid']">
+                            {{registerForm.controls['email'].errors?.['emailInvalid'].message}}
+                        </p>
+                    <fieldset formGroupName="address" [style.borderColor]="bcolor">
+                        <h3 class="mt-2">Address</h3>
+                        <label for="st" class="form-label">Street</label>
+                        <input type="text" id="st" class="form-control" formControlName="street" required>
+                        <label for="zp" class="form-label">Zip</label>
+                        <input type="text" id="zp" class="form-control" formControlName="zip" required>
+                        <label for="ct" class="form-label">City</label>
+                        <input type="text" id="ct" class="form-control" formControlName="city" required>
+                    </fieldset>
+                    <button class="btn btn-primary w-100 p-1 mt-2" (click)="submitted=true">Register</button>
+                </div>
+            </form>
+            <div *ngIf="submitted">
+                <h2>{{registerForm.get('firstname')?.value}}</h2>
+                <h2>{{registerForm.get('lastname')?.value}}</h2>
+                <h2>{{registerForm.get('address.street')?.value}}</h2>
+                <h2>{{registerForm.get('address.zip')?.value}}</h2>
+                <h2>{{registerForm.get('address.city')?.value}}</h2>
+            </div>
+        </div>
+    </div>
+</div>

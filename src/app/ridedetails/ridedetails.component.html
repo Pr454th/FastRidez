@@ -1,0 +1,42 @@
+<div class="col m-1">
+    <h3>Ride Details</h3>
+</div>
+<div class="col justify-content-center">
+    <div class="table-responsive">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Car</th>
+                    <th scope="col">Seats Left</th>
+                    <th scope="col">Pick-up Point</th>
+                    <th scope="col">Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{selectedRide.offerId}}</td>
+                    <td>{{selectedRide.name}}</td>
+                    <td>{{selectedRide.car}}</td>
+                    <td>{{selectedRide.seatsLeft}}</td>
+                    <td>{{selectedRide.pickUp}}</td>
+                    <td>{{selectedRide.destination}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="!booked && flag" class="col-md mb-1 d-flex justify-content-center">
+    <button class="btn btn-primary m-1" (click)="bookRide(selectedRide.offerId)">Book!</button>
+</div>
+<div class="row" *ngIf="!flag">
+    <div class="col-md mb-1 d-flex justify-content-center">
+        <p>You can't select your own ride!</p>
+    </div>
+</div>
+<div class="row" *ngIf="!flag">
+    <div class="col-md mb-1 d-flex justify-content-center">
+        <button class="btn btn-danger m-1" (click)="backRide()">Back!</button>
+    </div>
+</div>

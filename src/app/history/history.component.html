@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row mt-2">
+      <h1 class="display-5 mb-4">Booking History</h1>
+        <div class="col d-flex justify-content-center" *ngFor="let history of histories | historyFilter: user">
+            <div class="card mb-2"  style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title" [style.color]="green">{{history.bookTime.split("T")[0]+" "+history.bookTime.split("T")[1].split(".")[0]}}</h5>
+                  <ul class="list-group">
+                    <li class="list-group-item"><span class="field">RideID</span><span class="float-end">{{history.offerId}}</span></li>
+                    <li class="list-group-item"><span class="field">Name</span><span class="float-end">{{history.name}}</span></li>
+                    <li class="list-group-item"><span class="field">Start</span><span class="float-end">{{history.pickUp}}</span></li>
+                    <li class="list-group-item"><span class="field">Destination</span><span class="float-end">{{history.destination}}</span></li>
+                    <li class="list-group-item"><span class="field">Car</span><span class="float-end">{{history.car}}</span></li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

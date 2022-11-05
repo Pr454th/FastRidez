@@ -1,0 +1,118 @@
+<!--Login Form-->
+<!-- <base href="/"> -->
+<!-- <app-login></app-login> -->
+<div class="container">
+  <div class="row">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">FastRidez</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="user">
+            <li class="nav-item">
+              <a [routerLink]='["/bookride"]' class="nav-link" routerLinkActive="active">Book Ride</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]='["/ride-register"]' class="nav-link" routerLinkActive="active">Ride Registration</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]='["/myrides"]' class="nav-link" routerLinkActive="active">My Rides</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]='["/history"]' class="nav-link" routerLinkActive="active">History</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+          </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="!user">
+            <li class="nav-item">
+              </li>
+            <li class="nav-item">
+              </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <a [routerLink]='["/login"]' routerLinkActive="active" (click)="Log()">
+            <button [ngClass]="user?'btn btn-outline-danger p-2 w-100':'btn btn-outline-primary w-100 p-2'" type="submit" >
+              <i *ngIf="option==='Logout'" class="fa fa-sign-in"> {{option}}</i>
+              <i *ngIf="option==='Login'" class="fa fa-sign-in"> {{option}}</i>
+            </button>
+            </a>
+            <a [routerLink]='["/signup"]' routerLinkActive="active" class="mx-2" *ngIf="!user">
+              <button [ngClass]="user?'btn btn-outline-danger p-2 w-100':'btn btn-primary w-100 p-2'" type="submit" >
+                <i class="fa fa-user-plus"> Sign Up</i>
+              </button>
+              </a>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!--Ride Registration form-->
+<!-- <app-ride-registration></app-ride-registration> -->
+
+<!--Book ride-->
+<!-- <app-book-ride></app-book-ride> -->
+
+<!--Books list using service-->
+<!-- <app-book></app-book> -->
+
+<!--Observables for asynchronous stream of datas-->
+<!-- <app-observable></app-observable> -->
+
+<!--Registration form using reactive forms/model based forms-->
+<!-- <app-registrationform></app-registrationform> -->
+
+<!--parent to child component-->
+<!---->
+<!-- <div class="container">
+  <div>
+    <h1>Select Course</h1>
+    <select #course (change)="course.value">
+        <option value="python">Python</option>
+        <option value="c">C</option>
+        <option value="R">R</option>
+        <option value="Java">Java</option>
+    </select>
+  </div>
+  <app-courselist [cName]="course.value"></app-courselist>
+</div>
+-->
+
+<!--child to parent component-->
+<!-- 
+<div class="container">
+  <div>
+    <app-courselist (OnRegister)="assignedCourse($event)"></app-courselist>
+    <p *ngIf="message">You have choosen {{message}}</p>
+  </div>
+</div> -->
+
+<!--view child child members accessed by parent component-->
+<!-- <div class="container">
+  <div class="row">
+    <h1 class="display-3">Accessing child component properties</h1>
+    <input type="text" #ssn>
+    <button class="btn btn-primary m-2" (click)="modify()">Access Form Data</button>
+    <button class="btn btn-success m-2" (click)="startTimer()">Start</button>
+    <button class="btn btn-secondary m-2" (click)="endTimer()">End</button>
+    <app-timer></app-timer>
+  </div>
+</div> -->

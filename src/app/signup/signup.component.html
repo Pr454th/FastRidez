@@ -1,0 +1,42 @@
+<div class="container mt-2">
+    <h1 class="display-5 mb-4">Sign Up</h1>
+</div>
+<div class="container w-75 mt-2">
+    <div class="card">
+        <form [formGroup]="signupForm">
+            <div class="row p-2">
+                <div class="form-group">
+                    <label for="mail" class="form-label mt-1">Email</label>
+                    <input type="text" id="mail" class="form-control" formControlName="email" required>
+                    <small *ngIf="signupForm.controls['email'].errors?.['required']"  class="mt-1 requireMessage">
+                        required*
+                    </small>
+                    <br/>
+                    <label for="username" class="form-label mt-1">Name</label>
+                    <input type="text" id="username" class="form-control" formControlName="name" required>
+                    <small *ngIf="signupForm.controls['name'].errors?.['required']" class="mt-1 requireMessage">
+                        *required
+                    </small><br/>
+                    <label for="ppcode" class="form-label mt-1">Password</label>
+                    <input type="password" id="ppcode" class="form-control" formControlName="password" required>
+                    <small *ngIf="signupForm.controls['password'].errors?.['required']" class="mt-1 requireMessage">
+                        *required
+                    </small>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-lg d-flex justify-content-center mb-2">
+                    <button class="btn btn-success w-100" [disabled]="!signupForm.valid" (click)="add()">
+                        Sign Up
+                    </button>
+                </div>
+                <div class="col-lg d-flex justify-content-center mb-2">
+                    <button class="btn btn-secondary w-100">
+                        Clear
+                    </button>
+                </div>
+                <div class="col-lg"></div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+
+<!--Login form-->
+<!-- <div *ngIf="!submitted" class="container"> -->
+  <base href="/">
+  <div class="container mt-2">
+    <h1 class="display-5 mb-4">{{loginTitle}}</h1>
+</div>
+  <!-- <div class="container"> -->
+  <div class="container">
+    <div class="row justify-content-center mt-2">
+      <div class="card col-md-12 w-75">
+        <form>
+          <div class="form">
+            <form [formGroup]="loginForm">
+              <div class="row p-2">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" formControlName="uname" required>
+              <small *ngIf="loginForm.controls['uname'].errors?.['required']" class="requireMsg mt-1">*Required</small>
+              <label for="password" class="form-label mt-2" >Password</label>
+              <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" formControlName="pcode" required>
+              <small *ngIf="loginForm.controls['pcode'].errors?.['required']" class="requireMsg mt-1">*Required</small>
+              <small *ngIf="inVpassword" class="requireMsg">Invalid Credentials!</small>
+            </div>
+            <div class="row p-2">
+              <div class="col-lg justify-content-center d-flex">
+                <button class="btn btn-primary w-100 mt-2 mb-2" [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+              </div>
+              <div class="col-lg">
+                <a class="btn btn-secondary w-100 mt-2 mb-2" (click)="clear()">Clear</a>
+              </div>
+              <div class="col-lg">
+              </div>
+            </div>
+          </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+<!--after form submitted-->
+<!-- <div *ngIf="submitted" class="container">
+  <div class="row mt-2">
+    <div class="col-lg">
+      <div *ngIf="isAuthenticated; else failureMsg">
+        <h4 class="display-3">Welcome {{ username | titlecase }}</h4>
+      </div>
+    </div>
+  </div>
+  <ng-template #failureMsg>
+    <h4 class="display-3">Invalid Login !!! Please try again...</h4>
+  </ng-template>
+  <div class="row mt-2 justify-content-left">
+    <div class="col-3">
+      <button type="button" class="btn btn-secondary w-75" (click)="submitted = false">Back</button>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Two way Binding -->
+<!-- <input type="text" [(ngModel)]="twoWayBindtest">
+<p>{{twoWayBindtest}}</p> -->
+<!-- <p *appRepeat="5">hello world</p> -->
+<!-- <div>
+    structural directive
+    <ng-template appRepeat #pr="repeat1" #cr="repeat2">
+        <p [ngStyle]="{color:colorName}">Being repeated</p>
+    </ng-template>
+    <button (click)="pr.printRepeat(5)">Print Repeat</button>
+    <button (click)="cr.changeRepeat(5)">Change Repeat</button>
+</div> -->

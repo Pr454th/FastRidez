@@ -1,0 +1,35 @@
+<!-- <div class="row">
+    <div *ngIf="courses.length>=1">
+        <div class="table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let co of course;">
+                    <td>{{co.id}}</td>
+                    <td>{{co.name}}</td>
+                </tr>
+            </tbody>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="table">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let co of courses;">
+                <td>{{co.id}}</td>
+                <td>{{co.name}}</td>
+                <td><button (click)="register(co.name)">Register</button></td>
+            </tr>
+        </tbody>
+    </div>
+</div>

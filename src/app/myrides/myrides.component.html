@@ -1,0 +1,38 @@
+<div *ngIf="user">
+  <div class="container mt-2">
+    <h1 class="display-5 mb-4">My Ridez</h1>
+  </div>
+  <div class="container w-75">
+      <div class="card mt-2 p-1">
+        <div class="row">
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table table-striped table-success table-hover">
+                <caption>Your rides</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Offer Id</th>
+                    <th scope="col">Car</th>
+                    <th scope="col">Seats</th>
+                            <th scope="col">Start</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Remove</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let ride of rides | myRides:user">
+                            <td>{{ride.offerId}}</td>
+                            <td>{{ride.car}}</td>
+                            <td>{{ride.seatsLeft}}</td>
+                            <td>{{ride.pickUp}}</td>
+                            <td>{{ride.destination}}</td>
+                            <td><i class="btn btn-danger circle btn-xl fa fa-remove" (click)="deleteRide(ride)"></i></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

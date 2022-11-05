@@ -1,0 +1,12 @@
+table{
+    width:100%;
+}
+th
+{
+    background-color: #0d6efd;
+    color:white;
+}
+tr{
+    background-color: lightblue;
+    text-align: center;
+}

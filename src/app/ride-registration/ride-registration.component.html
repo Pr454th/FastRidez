@@ -1,0 +1,60 @@
+<div class="container mt-2">
+    <h1 class="display-5 mb-4">New Ride Registration</h1>
+</div>
+<div class="container d-flex justify-content-center" *ngIf="user">
+    <div class="row w-75 mt-2 mb-2">
+        <div class="card col p-2">
+            <form [formGroup]="registerForm">
+                <div class="form-group">
+                    <label for="ofid" class="form-label">Ride Id</label>
+                    <input type="text" id="ofid" class="form-control" formControlName="Offerid" required #offer>
+                        <small *ngIf="registerForm.controls['Offerid'].errors?.['required']" class="mt-1 requireMessage">
+                            required*
+                        </small><br/>
+                    <label for="ln" class="form-label mt-1">Start Location</label>
+                    <input type="text" id="ln" class="form-control" formControlName="startLocation" required #startl> 
+                        <small *ngIf="registerForm.controls['startLocation'].errors?.['required']" class="mt-1 requireMessage">
+                            required*
+                        </small><br/>
+                        <label for="mail" class="form-label mt-1">Destination</label>
+                        <input type="text" id="mail" class="form-control" formControlName="destination" required #endl>
+                        <small *ngIf="registerForm.controls['destination'].errors?.['required']" class="mt-1 requireMessage">required*</small>
+                        <br/>
+                        <label for="st" class="form-label mt-1">Car</label>
+                        <input type="text" id="st" class="form-control" formControlName="car" required #carName>
+                        <br/>
+                        <label for="zp" class="form-label mt-1">Seats Available</label>
+                        <input type="number" id="zp" class="form-control" formControlName="seatsAvailable" required #seats>
+                        <div *ngIf="registerForm.controls['seatsAvailable'].errors?.['invalidSeats']" class="requireMessage">
+                            <small>
+                                {{registerForm.controls['seatsAvailable'].errors?.['invalidSeats'].message}}
+                            </small>
+                        </div>
+
+                <div class="row ">
+                    <div class="col-lg justify-content-center d-flex">
+                        <button class="btn btn-primary w-100 mt-2 " [disabled]="!registerForm.valid" (click)="add()">Submit</button>
+                    </div>
+                    <div class="col-lg">
+                        <button class="btn btn-danger w-100 mt-2" (click)="goBack()">Go Back</button>
+                    </div>
+                    <div class="col-lg">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col d-flex justify-content-center">
+                        <h4 style="color:#42a948" *ngIf="submitted">Added Successfully!</h4>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="!user">
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+            <h1 class="display-4">Please Login to Book ride!</h1>
+        </div>
+    </div>
+</div>
