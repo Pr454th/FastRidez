@@ -15,10 +15,10 @@
               <div class="row p-2">
               <label for="username" class="form-label">Username</label>
               <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" formControlName="uname" required>
-              <small *ngIf="loginForm.controls['uname'].errors?.['required']" class="requireMsg mt-1">*Required</small>
+              <small *ngIf="loginForm.controls['uname'].errors?.['required']" class="requireMsg mt-1">*required</small>
               <label for="password" class="form-label mt-2" >Password</label>
               <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" formControlName="pcode" required>
-              <small *ngIf="loginForm.controls['pcode'].errors?.['required']" class="requireMsg mt-1">*Required</small>
+              <small *ngIf="loginForm.controls['pcode'].errors?.['required']" class="requireMsg mt-1">*required</small>
               <small *ngIf="inVpassword" class="requireMsg">Invalid Credentials!</small>
             </div>
             <div class="row p-2">
