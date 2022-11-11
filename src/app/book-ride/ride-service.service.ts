@@ -47,8 +47,8 @@ export class RideServiceService {
   }
   
   //booking info
-  sendBookingInfo(ride:any):Observable<any>{
+  sendBookingInfo(ride:any,mail:any):Observable<any>{
     const options=new HttpHeaders({'content-Type':'application/json'});
-    return this.http.post<any>('http://localhost:3000/sendmail',{headers:options}).pipe();
+    return this.http.post<any>(`http://localhost:3000/sendmail/${mail}`,ride,{headers:options}).pipe();
   }
 }

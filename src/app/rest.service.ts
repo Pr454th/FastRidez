@@ -17,13 +17,8 @@ export class RestService {
     let user:any=sessionStorage.getItem('user');
     return user;
   }
-  getMail():Observable<any>{
-    return this.http.get('http://localhost:3000/getmail');
-  }
-  getUserMail():any{
-    this.getMail().subscribe({
-      next:(data)=>{return data.email}
-    });
+  getMail(u:any):Observable<any>{
+    return this.http.get(`http://localhost:3000/getmail/${u}`).pipe();
   }
   removeUser(){
     sessionStorage.setItem('user',"");

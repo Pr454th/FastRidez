@@ -67,16 +67,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit()
   {
-    //email
-    const headers=new HttpHeaders({'content-Type':'application/json'});
-    this.http.post('https://formspree.io/asdlf7asdf',
-        { name: "prasath", replyto: "prasathkarthiban1999@gmail.com", message: "test msg" },
-        { 'headers': headers }).subscribe(
-          {next:response => {
-            console.log(response);
-          }}
-        );
-
     console.log("login");
     let one=1;
     if(this.loginForm.controls['uname'].value==="admin" && this.loginForm.controls['pcode'].value==="admin"){

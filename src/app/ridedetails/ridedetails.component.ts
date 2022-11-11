@@ -21,11 +21,16 @@ export class RidedetailsComponent implements OnInit {
   {
     this.flag=flag;
   }
-
+  mail!:string;
   @Output() bookSelectedRide=new EventEmitter<string>();
   bookRide(sRide:string)
   {
-    this.ridesService.sendBookingInfo(sRide);
+    this.userLog.getMail(this.user).subscribe({
+      next:(data)=>{
+        this.mail=data.mail.email;
+        this.ridesService.sendBookingInfo(this.selectedRide,this.mail).subscribe();
+      }
+    });
     this.bookSelectedRide.emit(sRide);
     this.booked=true;
     this.ridesService.setHistory(this.selectedRide,this.user).subscribe();
