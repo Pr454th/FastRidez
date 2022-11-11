@@ -25,6 +25,7 @@ export class RidedetailsComponent implements OnInit {
   @Output() bookSelectedRide=new EventEmitter<string>();
   bookRide(sRide:string)
   {
+    this.ridesService.sendBookingInfo(sRide);
     this.bookSelectedRide.emit(sRide);
     this.booked=true;
     this.ridesService.setHistory(this.selectedRide,this.user).subscribe();

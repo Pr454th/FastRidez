@@ -13,11 +13,11 @@ export class UserServiceService {
   }
   isUser(user:any):Observable<any>{
     const options=new HttpHeaders({'content-Type':'application/json'});
-    return this.http.post<any>('https://fastridez-api.herokuapp.com/user',user,{headers:options}).pipe();
+    return this.http.post<any>('http://localhost:3000/user',user,{headers:options}).pipe();
   }
   newUser(user:any)
   {
     const options=new HttpHeaders({'content-Type':'application/json'});
-    return this.http.post<any>('https://fastridez-api.herokuapp.com/adduser',user,{headers:options}).pipe();
+    return this.http.post<any>('http://localhost:3000/adduser',user,{headers:options}).pipe();
   }
 }

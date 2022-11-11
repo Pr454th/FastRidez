@@ -10,6 +10,7 @@ import { RestService } from '../rest.service';
 })
 export class HistoryComponent implements OnInit {
   user!:string;
+  admin!:string;
   constructor(private rideService:RideServiceService,
     private userLog:RestService) { }
   histories!:any[];
@@ -23,6 +24,7 @@ export class HistoryComponent implements OnInit {
       error:(err)=>this.err=err
     });
     this.user=this.userLog.getUser();
+    this.admin=this.userLog.getAdmin();
   }
 
 }

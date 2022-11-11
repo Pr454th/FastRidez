@@ -1,0 +1,11 @@
+<div *ngIf="admin">
+    <div class="container mt-2">
+            <h1 class="display-5 mb-4">Access Logs</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col alert alert-info" [innerHTML]="logs">
+            </div>
+        </div>
+    </div>
+</div>

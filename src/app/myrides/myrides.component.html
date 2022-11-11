@@ -16,6 +16,7 @@
                     <th scope="col">Seats</th>
                             <th scope="col">Start</th>
                             <th scope="col">Destination</th>
+                            <th scope="col">Edit</th>
                             <th scope="col">Remove</th>
                           </tr>
                         </thead>
@@ -26,7 +27,8 @@
                             <td>{{ride.seatsLeft}}</td>
                             <td>{{ride.pickUp}}</td>
                             <td>{{ride.destination}}</td>
-                            <td><i class="btn btn-danger circle btn-xl fa fa-remove" (click)="deleteRide(ride)"></i></td>
+                            <td><i class="btn btn-secondary btn-xl fa fa-pencil-square-o" (click)="updateRide(ride)"></i></td>
+                            <td><i class="btn btn-danger btn-xl fa fa-remove" (click)="deleteRide(ride)"></i></td>
                           </tr>
                         </tbody>
                     </table>

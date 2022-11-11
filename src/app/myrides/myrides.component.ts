@@ -32,6 +32,11 @@ export class MyridesComponent implements OnInit {
   // }); 
   }
 
+  updateRide(uride:any){
+    this.rideService.setUpdateRide(uride);
+    this.router.navigate(['/ride-register']);
+  }
+
   ngOnInit(): void {
     this.user=this.userLog.getUser();
     this.rideService.getRides().subscribe({

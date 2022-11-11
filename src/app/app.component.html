@@ -35,6 +35,14 @@
               </ul>
             </li> -->
           </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="admin && !user">
+            <li class="nav-item">
+              <a [routerLink]='["/logs"]' class="nav-link" routerLinkActive="active">Access Logs</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]='["/history"]' class="nav-link" routerLinkActive="active">Histories</a>
+            </li>
+          </ul>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="!user">
             <li class="nav-item">
               </li>

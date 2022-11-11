@@ -24,6 +24,8 @@ import { MyRidesPipe } from './myrides/my-rides.pipe';
 import { HistoryComponent } from './history/history.component';
 import { SignupComponent } from './signup/signup.component';
 import { HistoryFilterPipe } from './history/history-filter.pipe';
+import { AdminComponent } from './admin/admin.component';
+import { LogsComponent } from './logs/logs.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { HistoryFilterPipe } from './history/history-filter.pipe';
     MyRidesPipe,
     HistoryComponent,
     SignupComponent,
-    HistoryFilterPipe
+    HistoryFilterPipe,
+    AdminComponent,
+    LogsComponent
   ],
   imports: [
     BrowserModule,

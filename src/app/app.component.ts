@@ -30,14 +30,19 @@ export class AppComponent implements DoCheck {
   //view decorator to access data from app/parent component
   // @ViewChild('ssn') ssn!:ElementRef;
   user!:string;
+  admin!:string;
   option:string="Login";
   Log(){
     if(this.user){
        this.option="Login";
        this.userLog.removeUser();
     }
+    if(this.admin){
+      this.userLog.disableAdmin();
+    }
   }
   ngDoCheck(){
+    this.admin=this.userLog.getAdmin();
     this.user=this.userLog.getUser();
     if(this.user) this.option="Logout";
   }
