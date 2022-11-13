@@ -3,34 +3,35 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RestService {
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
   // admin!:string;
-  setUser(user:string){
+  setUser(user: string) {
     // this.user=user;
-    sessionStorage.setItem('user',user);
+    sessionStorage.setItem('user', user);
   }
-  getUser():string
-  {
-    let user:any=sessionStorage.getItem('user');
+  getUser(): string {
+    let user: any = sessionStorage.getItem('user');
     return user;
   }
-  getMail(u:any):Observable<any>{
-    return this.http.get(`http://localhost:3000/getmail/${u}`).pipe();
+  getMail(u: any): Observable<any> {
+    return this.http
+      .get(`https://fastridez-api.herokuapp.com/getmail/${u}`)
+      .pipe();
   }
-  removeUser(){
-    sessionStorage.setItem('user',"");
+  removeUser() {
+    sessionStorage.setItem('user', '');
   }
-  enableAdmin(){
-    sessionStorage.setItem('admin','secretadmin');
+  enableAdmin() {
+    sessionStorage.setItem('admin', 'secretadmin');
   }
-  getAdmin(){
-    let ad:any=sessionStorage.getItem('admin');
+  getAdmin() {
+    let ad: any = sessionStorage.getItem('admin');
     return ad;
   }
-  disableAdmin(){
-    sessionStorage.setItem('admin','');
+  disableAdmin() {
+    sessionStorage.setItem('admin', '');
   }
 }
