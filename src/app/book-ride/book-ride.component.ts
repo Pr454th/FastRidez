@@ -106,7 +106,7 @@ export class BookRideComponent implements OnInit {
 
   //cancelling the booking and setting booked to false to book again
   @ViewChild(RidedetailsComponent) rdComponent!:RidedetailsComponent;
-  
+  mail!:string;
   cancelRide(cRide:any)
   {
     this.rideid="";
@@ -121,6 +121,12 @@ export class BookRideComponent implements OnInit {
     this.rideDetail="";
     this.rdComponent.booked=false;
     this.isRideSelected=false;
+    this.userLog.getMail(this.user).subscribe({
+      next:(a)=>{
+        this.mail=a;
+        this.rideService.cancelBooking(cRide,this.mail).subscribe();
+      }
+    })
   }
   rides!:any[];
   err!:string;

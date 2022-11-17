@@ -82,4 +82,12 @@ export class RideServiceService {
       })
       .pipe();
   }
+
+  //cancel booking mail
+  cancelBooking(ride:any,mail:any):Observable<any>{
+    const options=new HttpHeaders({'content-Type':'application/json'});
+    return this.http.post<any>(`https://fastridez-api.herokuapp.com/cancelmail/${mail}`,ride,{
+      headers:options
+    }).pipe();
+  }
 }
